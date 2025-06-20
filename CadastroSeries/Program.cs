@@ -47,7 +47,13 @@ namespace CadastroSeries
 		private static void ExcluirSerie()
 		{
 			Console.Write("Digite o id da série: ");
-			int indiceSerie = int.Parse(Console.ReadLine());
+			int indiceSerie;
+			
+			while (!int.TryParse(Console.ReadLine(), out indiceSerie))
+			{
+				Console.WriteLine("Por favor, digite um número válido para o ID.");
+				Console.Write("Digite o id da série: ");
+			}
 
 			repositorio.Exclui(indiceSerie);
 		}
@@ -55,7 +61,13 @@ namespace CadastroSeries
 		private static void VisualizarSerie()
 		{
 			Console.Write("Digite o id da série: ");
-			int indiceSerie = int.Parse(Console.ReadLine());
+			int indiceSerie;
+			
+			while (!int.TryParse(Console.ReadLine(), out indiceSerie))
+			{
+				Console.WriteLine("Por favor, digite um número válido para o ID.");
+				Console.Write("Digite o id da série: ");
+			}
 
 			var serie = repositorio.RetornaPorId(indiceSerie);
 
@@ -65,7 +77,13 @@ namespace CadastroSeries
 		private static void AtualizarSerie()
 		{
 			Console.Write("Digite o id da série: ");
-			int indiceSerie = int.Parse(Console.ReadLine());
+			int indiceSerie;
+			
+			while (!int.TryParse(Console.ReadLine(), out indiceSerie))
+			{
+				Console.WriteLine("Por favor, digite um número válido para o ID.");
+				Console.Write("Digite o id da série: ");
+			}
 
 			Cadastro();
 
@@ -104,13 +122,23 @@ namespace CadastroSeries
 				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
 			}
 			Console.Write("Digite o gênero entre as opções acima: ");
-			entradaGenero = int.Parse(Console.ReadLine());
+			
+			while (!int.TryParse(Console.ReadLine(), out entradaGenero))
+			{
+				Console.WriteLine("Por favor, digite um número válido para o gênero.");
+				Console.Write("Digite o gênero entre as opções acima: ");
+			}
 
 			Console.Write("Digite o Título da Série: ");
 			entradaTitulo = Console.ReadLine();
 
 			Console.Write("Digite o Ano de Início da Série: ");
-			entradaAno = int.Parse(Console.ReadLine());
+			
+			while (!int.TryParse(Console.ReadLine(), out entradaAno))
+			{
+				Console.WriteLine("Por favor, digite um número válido para o ano.");
+				Console.Write("Digite o Ano de Início da Série: ");
+			}
 
 			Console.Write("Digite a Descrição da Série: ");
 			entradaDescricao = Console.ReadLine();
