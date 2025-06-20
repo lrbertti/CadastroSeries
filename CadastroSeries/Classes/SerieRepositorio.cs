@@ -10,6 +10,7 @@ namespace CadastroSeries.Classes
         private List<Serie> listaSerie = new List<Serie>();
         public void Atualiza(int id, Serie objeto)
         {
+            if (objeto == null) throw new ArgumentNullException(nameof(objeto));
             listaSerie[id] = objeto;
         }
 
@@ -20,6 +21,7 @@ namespace CadastroSeries.Classes
 
         public void Insere(Serie objeto)
         {
+            if (objeto == null) throw new ArgumentNullException(nameof(objeto));
             listaSerie.Add(objeto);
         }
 
